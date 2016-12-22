@@ -122,6 +122,11 @@ panorama > controller .subtitle:before
 
 panorama.no-js
 {
+    animation-duration:        5000s;
+    animation-iteration-count: infinite;
+    animation-name:            panorama-no-js-scroll;
+    animation-timing-function: linear;
+
     cursor: auto;
 }
 
@@ -141,3 +146,15 @@ panorama.no-js > controller button
     display: none;
 }
 
+@keyframes panorama-no-js-scroll
+{
+    from
+    {
+        background-position: 100000px 0;
+    }
+
+    to
+    {
+        background-position: -100000px 0;
+    }
+}
