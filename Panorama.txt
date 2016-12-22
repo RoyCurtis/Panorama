@@ -1,0 +1,33 @@
+$${
+// 360 panorama script by Roy Curtis
+// Derivative of Hurricane_32's script from
+// http://forums.teamextrememc.com/index.php/topic/22030-
+
+// Show messages
+Set(@panorama)
+Title("Starting panorama","&cPlease don't move until it's complete",0,20,20)
+Wait(1000ms)
+
+// Hide GUI and wait a bit, else it will appear in first shot
+Press(F1)
+Wait(50ms)
+
+// Reset view to 0 degrees yaw and 1 degree pitch
+// 1 degree pitch is necessary as 0 causes some tile entities to disappear
+// Can't use 0.1 as Macro/Keybind does not support floats for most parameters...
+Look(0,1,0.2)
+
+// Begin panorama loop
+Do(15)
+    Press(F2)
+    PlaySound("entity.experience_orb.pickup")
+    Wait(100ms)
+    Look(+24,1,0.2)
+Loop
+
+// Unhide GUI
+Press(F1)
+PlaySound("entity.player.levelup")
+Title("&aPanorama complete!","All images saved to screenshots folder",0,100,20)
+
+}$$

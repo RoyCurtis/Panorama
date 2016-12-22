@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<!-- Designed by Roy Curtis 2016, licensed under MIT -->
+<head>
+  <meta charset="utf-8">
+
+  <title>Panorama example</title>
+  <meta name="viewport"    content="width=device-width, initial-scale=1">
+  <meta name="author"      content="Roy Curtis">
+  <meta name="description" content="Example page for horizontal-360 panorama">
+
+  <!-- Panorama style sheet -->
+  <link rel="stylesheet" href="css/panorama.css" />
+</head>
+
+<body>
+  <!-- Panorama - Interactive 360 panorama of various locations -->
+  <!-- Define background image of first slide inline, for non-JavaScript users -->
+  <panorama id="pano-demo" class="no-js" style="background-image: url('img/pano01.jpg')">
+    <!-- Define slides here, with their respective metadata -->
+    <slide src="img/pano01.jpg" title="Emerald Escape" subtitle="Roy Curtis"></slide>
+    <slide src="img/pano02.jpg" title="Mesa Bowl"      subtitle="Anonymous"></slide>
+    <slide src="img/pano03.jpg" title="Wooly Evening"  subtitle="John Doe"></slide>
+
+    <!-- Define the controller for this panorama -->
+    <controller class="noselect">
+      <span class="metadata">
+        <!-- Define title and subtitle of first slide here, for non-JavaScript users -->
+        <span class="title">Emerald Escape</span>
+        <span class="subtitle">Roy Curtis</span>
+      </span>
+
+      <button class="prev">&#x2770;</button>
+      <button class="next">&#x2771;</button>
+    </controller>
+  </panorama>
+</body>
+
+<scripts>
+  <script src="js/panorama.js" type="application/javascript"></script>
+
+  <script type="application/javascript">
+    // Transform #pano-demo into interactive panorama, then begin draw loop
+    Panorama.create("#pano-demo");
+    Panorama.loop();
+  </script>
+</scripts>
+</html>

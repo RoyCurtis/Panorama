@@ -1,0 +1,143 @@
+/**
+ * Panorama control CSS by Roy Curtis
+ * Licensed under MIT, 2015
+ * Contains responsive and no-JavaScript styles
+ */
+
+/* CSS reset for all panorama elements */
+/* Remove if already using a CSS reset */
+panorama,
+panorama *
+{
+    box-sizing: border-box;
+    margin:     0;
+    padding:    0;
+}
+
+/* Main panorama element styles */
+
+panorama
+{
+    align-items:     center;
+    cursor:          move;
+    display:         flex;
+    flex-flow:       column;
+    height:          600px;
+    justify-content: flex-end;
+}
+
+panorama slide
+{
+    display: none;
+}
+
+panorama > controller
+{
+    align-content:   flex-end;
+    display:         flex;
+    flex-wrap:       wrap;
+    justify-content: center;
+    margin:          0 0 1em;
+
+    /* Disable text selection when dragging across panorama */
+    /* http://stackoverflow.com/a/4407335/3354920 */
+    -webkit-touch-callout: none;
+    -webkit-user-select:   none;
+    -khtml-user-select:    none;
+    -moz-user-select:      none;
+    -ms-user-select:       none;
+    user-select:           none;
+}
+
+panorama > controller,
+panorama > controller button
+{
+    color: #FFFFFF;
+}
+
+panorama > controller button
+{
+    background:  rgba(0, 0, 0, 0.75);
+    border:      none;
+    cursor:      pointer;
+    display:     block;
+    flex-basis:  2em;
+    font-size:   2em;
+    padding:     0 0 0.25em;
+}
+
+panorama > controller button.prev
+{
+    border-radius: 0 0 0 5px;
+}
+
+panorama > controller button.next
+{
+    border-radius: 0 0 5px 0;
+}
+
+panorama > controller > span
+{
+    background:    rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    flex-grow:     1;
+    flex-basis:    100%;
+    font-size:     2em;
+    padding:       0.25em 0;
+    text-align:    center;
+}
+
+panorama > controller .subtitle:before
+{
+    content:       "by ";
+    font-size:     small;
+    font-style:    italic;
+    padding-right: 4px;
+}
+
+/* Responsive design overrides */
+/* Remove if you don't want panorama to change for smaller screens */
+
+@media (max-width: 600px)
+{
+    panorama
+    {
+        background-size: auto 300px;
+        height:          300px;
+    }
+
+    panorama > controller > span
+    {
+        font-size: 1em;
+    }
+
+    panorama > controller button
+    {
+        flex-basis: 30%;
+        font-size:  1em;
+    }
+}
+
+/* Non-Javascript overrides */
+
+panorama.no-js
+{
+    cursor: auto;
+}
+
+panorama.no-js > controller
+{
+    margin: 0;
+}
+
+panorama.no-js > controller > span
+{
+    border-radius: 5px 5px 0 0;
+    padding:       0.25em;
+}
+
+panorama.no-js > controller button
+{
+    display: none;
+}
+
